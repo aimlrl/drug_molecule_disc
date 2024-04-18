@@ -29,12 +29,4 @@ def test_is_molecule_generation_none(single_molecule_generation):
 
 def test_gen_molecule_dtype(single_molecule_generation):
     
-    assert isinstance(single_molecule_generation.get("Generated Molecule"),str) 
-
-
-"""
-if __name__=='__main__':
-    gen_mol = single_molecule_generation()
-    is_molecule_generation_none(gen_mol)
-    check_gen_molecule_dtype(gen_mol)
-"""
+    assert isinstance(single_molecule_generation.get("Generated Molecule"),str)

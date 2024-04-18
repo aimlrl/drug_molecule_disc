@@ -1,5 +1,3 @@
-import sys
-sys.path.append("./")
 import pandas as pd
 import numpy as np
 from keras.utils import to_categorical
@@ -8,7 +6,6 @@ from valid_drug_molecule_generator.config import config
 from valid_drug_molecule_generator.processing.data_management import load_dataset,save_model
 import valid_drug_molecule_generator.processing.preprocessors as pp
 import valid_drug_molecule_generator.pipeline as pl
-from valid_drug_molecule_generator.predict import generate_molecule
 
 
 def run_training():

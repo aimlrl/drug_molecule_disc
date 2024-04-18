@@ -1,5 +1,3 @@
-import sys
-sys.path.append("./")
 import pathlib
 import os
 import valid_drug_molecule_generator

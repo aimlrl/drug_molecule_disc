@@ -1,5 +1,3 @@
-import sys
-sys.path.append("./")
 from sklearn.pipeline import Pipeline
 from scikeras.wrappers import KerasClassifier
 import tensorflow as tf
