@@ -1,1 +1,1 @@
-# drug-discovery_smiles
+# drug_molecule_disc
