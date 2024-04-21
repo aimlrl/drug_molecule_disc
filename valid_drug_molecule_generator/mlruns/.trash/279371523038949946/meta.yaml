@@ -1,0 +1,7 @@
+artifact_location: file:///workspaces/drug_molecule_disc/valid_drug_molecule_generator/mlruns/279371523038949946
+creation_time: 1713593213259
+experiment_id: '279371523038949946'
+last_update_time: 1713625273344
+lifecycle_stage: deleted
+name: drug_molecule_discovery
+tags: {}

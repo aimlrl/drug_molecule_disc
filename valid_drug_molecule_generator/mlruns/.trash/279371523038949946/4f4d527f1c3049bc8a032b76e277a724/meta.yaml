@@ -1,0 +1,16 @@
+artifact_uri: file:///workspaces/drug_molecule_disc/valid_drug_molecule_generator/mlruns/279371523038949946/4f4d527f1c3049bc8a032b76e277a724/artifacts
+deleted_time: 1713625273344
+end_time: 1713593243765
+entry_point_name: ''
+experiment_id: '279371523038949946'
+lifecycle_stage: deleted
+run_id: 4f4d527f1c3049bc8a032b76e277a724
+run_name: enc_dec_drug_molecule_gen
+run_uuid: 4f4d527f1c3049bc8a032b76e277a724
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713593217485
+status: 3
+tags: []
+user_id: codespace

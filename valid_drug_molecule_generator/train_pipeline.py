@@ -1,11 +1,14 @@
 import pandas as pd
 import numpy as np
 from keras.utils import to_categorical
+import mlflow
 
 from valid_drug_molecule_generator.config import config
-from valid_drug_molecule_generator.processing.data_management import load_dataset,save_model
+from valid_drug_molecule_generator.processing.data_management import load_dataset,save_model,load_nn_model
 import valid_drug_molecule_generator.processing.preprocessors as pp
 import valid_drug_molecule_generator.pipeline as pl
+
+loaded_model_name = "enc_dec_drug_molecule_gen"
 
 
 def run_training():
@@ -39,16 +42,37 @@ def run_training():
 
 
     drug_discovery_model = pl.encoder_decoder_with_attn_mech()
-    drug_discovery_model.fit(training_data_generator(1000,25),epochs=25,
+    history = drug_discovery_model.fit(training_data_generator(1000,1),epochs=1,
                              steps_per_epoch=1000,
-                             validation_data=cv_data_generator(1711,25),validation_steps=18)
+                             validation_data=cv_data_generator(1711,1),validation_steps=18)
     
     save_model(drug_discovery_model)
+
+    return history
+
+
+
+def mlflow_logs(model,model_history,name):
+
+    with mlflow.start_run(run_name=name) as run:
+
+        exp_run_id = run.info.run_id
+        mlflow.set_tag("run_id",exp_run_id)
+
+        mlflow.log_metric("Training Accuracy",model_history.history["Accuracy"][-1])
+        mlflow.log_metric("Validation Accuracy",model_history.history["val_Accuracy"][-1])
+
+        mlflow.keras.log_model(model,name)
+        
+        mlflow.end_run()
 
 
 
 if __name__=='__main__':
-    run_training()
+    model_history = run_training()
+    loaded_model = load_nn_model(loaded_model_name+".keras")
+    mlflow.set_experiment("drug_molecule_discovery")
+    mlflow_logs(loaded_model,model_history,loaded_model_name)
 
 
 
