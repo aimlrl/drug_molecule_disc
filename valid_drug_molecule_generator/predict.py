@@ -75,10 +75,9 @@ def generate_molecule(input_data):
     return {"Generated Molecule": generated_molecule}
 
 
-"""
+
 if __name__=='__main__':
     single_input = X_cv[random.randint(0,X_cv.shape[0]),:]
     single_input = single_input.reshape(1,single_input.shape[0])
     gen_mol = generate_molecule(single_input)
-    print(gen_mol)
-"""    
+    print(gen_mol)    

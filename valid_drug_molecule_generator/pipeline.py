@@ -1,5 +1,5 @@
 from sklearn.pipeline import Pipeline
-from scikeras.wrappers import KerasClassifier
+#from scikeras.wrappers import KerasClassifier
 import tensorflow as tf
 from keras.layers import Input, Embedding, LSTM, Attention, Concatenate, Dense
 from keras.models import Model
