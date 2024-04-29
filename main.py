@@ -48,8 +48,8 @@ def index():
 @app.post('/Generate_Molecule')
 def gen_molecule(trigger: MoleculeGenerator):
 
-    input_data = trigger.model_dump()
-    input = input_data['start']
+    input = trigger.start
+    #input = input_data['start']
 
     if input == 'y' or input == 'Y' or input == 'start' or input == 'Start':
         single_input = X_cv[random.randint(0,X_cv.shape[0]),:]
